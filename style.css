@@ -72,6 +72,13 @@ header{
     background-color: var(--rose-300);
     border-radius: var(--bod-rad);
     box-shadow: var(--box-shd);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.popup.active{
+    opacity:1;
+    pointer-events: auto;
 }
 
 .popup_container{
@@ -133,6 +140,7 @@ button.form_btn{
     font-family: var(--main-font);
     background-color: var(--rose-200);
     font-size: 1rem;
+    cursor: pointer;
 }
 
 button.close_btn{
@@ -145,4 +153,5 @@ button.close_btn{
     background-color: var(--rose-950);
     color: var(--rose-50);
     justify-self: right;
+    cursor:pointer;
 }

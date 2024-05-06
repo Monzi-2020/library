@@ -27,3 +27,12 @@ myLibrary.push(theHobbit);
 myLibrary.push(littlePrince);
 myLibrary.push(harryPotter1);
 myLibrary.push(aliceWonderland);
+
+// Show adding form
+
+const showPopup = document.querySelector(".popup");
+const addBookBtn = document.querySelector("#add_books");
+
+addBookBtn.addEventListener('click', () =>
+showPopup.classList.toggle('active')
+);
