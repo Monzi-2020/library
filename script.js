@@ -8,14 +8,32 @@ function Book(title,author,pages,read){
     this.author = author,
     this.pages = pages,
     this.read = read;
-    this.info = function(){
-        console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`);
-    };
+    return this;
 }
 
 function addBookToLibrary(title,author,pages,read){
     myLibrary.push(new Book(title,author,pages,read));
 }
+
+function displayBook(arr){
+    for (const obj of arr){
+        const book = document.createElement('div');
+        book.classList.add('book');
+        bookContainer.appendChild(book);
+        console.log(this)
+
+        const title = document.createElement('div');
+        title.classList.add('book_title');
+        title.textContent = `${obj.title}`;
+        book.appendChild(title);
+
+        const author = document.createElement('div');
+        author.classList.add('book_author');
+        author.textContent = `${obj.author}`;
+        book.append(author);
+    }
+}
+
 
 // Initial books
 const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
@@ -27,6 +45,8 @@ myLibrary.push(theHobbit);
 myLibrary.push(littlePrince);
 myLibrary.push(harryPotter1);
 myLibrary.push(aliceWonderland);
+
+
 
 // Number of books
 const numBooks = document.querySelector('.num_books');
@@ -46,3 +66,14 @@ const closeBtn = document.querySelector('.close_btn');
 
 closeBtn.addEventListener('click', () => 
 showPopup.classList.toggle('active'));
+
+// Book container
+
+const bookContainer= document.querySelector('.book_container');
+
+
+
+
+displayBook(myLibrary);
+console.log(myLibrary)
+
