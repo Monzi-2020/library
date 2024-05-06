@@ -36,3 +36,8 @@ const addBookBtn = document.querySelector("#add_books");
 addBookBtn.addEventListener('click', () =>
 showPopup.classList.toggle('active')
 );
+
+const closeBtn = document.querySelector('.close_btn');
+
+closeBtn.addEventListener('click', () => 
+showPopup.classList.toggle('active'));
