@@ -48,6 +48,7 @@ body{
 header{
     background-color: var(--rose-100);
     padding: 5vh;
+    box-shadow: var(--box-shd);
 }
 
 .header_top{
@@ -56,8 +57,29 @@ header{
     align-items: center;
 }
 
+.header_top > h1 {
+    font-family: "roboto-bold";
+    font-size: 2.5rem;
+}
+
 .header_top_left{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    font-size: 1.5rem;
+}
+
+button#add_books {
+    width: 20vh;
+    height: 60px;
+    border: none;
+    background-color: var(--rose-300);
+    border-radius: var(--bod-rad);
+    box-shadow: var(--box-shd);
+    font-size: 1.5rem;
+    cursor:pointer;
+
 }
 
 
@@ -74,11 +96,13 @@ header{
     box-shadow: var(--box-shd);
     opacity: 0;
     pointer-events: none;
+    transition: .4s ease;
 }
 
 .popup.active{
     opacity:1;
     pointer-events: auto;
+    transition: .4s ease;
 }
 
 .popup_container{

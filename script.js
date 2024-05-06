@@ -28,6 +28,10 @@ myLibrary.push(littlePrince);
 myLibrary.push(harryPotter1);
 myLibrary.push(aliceWonderland);
 
+// Number of books
+const numBooks = document.querySelector('.num_books');
+numBooks.textContent = myLibrary.length;
+
 // Show adding form
 
 const showPopup = document.querySelector(".popup");
@@ -37,6 +41,7 @@ addBookBtn.addEventListener('click', () =>
 showPopup.classList.toggle('active')
 );
 
+// Close adding form
 const closeBtn = document.querySelector('.close_btn');
 
 closeBtn.addEventListener('click', () => 
