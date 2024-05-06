@@ -250,7 +250,7 @@ article{
     width: 50px;
     height: 30px;
     display: block;
-    background-color: var(--rose-50);
+    background-color: var(--rose-100);
     border-radius: 100px;
     cursor: pointer;
     position: relative;

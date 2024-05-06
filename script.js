@@ -36,9 +36,26 @@ function displayBook(arr){
         pages.textContent = `${obj.pages} pages`;
         book.appendChild(pages);
 
+        const toggleBox = document.createElement('label');
+        const checkbox = document.createElement('input');
+        const circle = document.createElement('div');
         
+        toggleBox.classList.add('toggle_box');
+        checkbox.setAttribute('type', 'checkbox');
+        circle.classList.add('circle');
+        toggleBox.appendChild(checkbox);
+        toggleBox.append(circle);
+        book.appendChild(toggleBox);
+
+        toggleBox.addEventListener('click', () => {
+               if(checkbox.checked){
+                circle.classList.toggle('toggled');
+               }
+        });        
     }
 }
+
+
 
 function checkRead(){
     this.read === 'read' ? 'Read' : 'Not read yet';
@@ -89,15 +106,10 @@ const bookFooter = document.querySelector('book_footer');
 // -----Book elements-----
 
 // Toggle button for read
-const toggleBox = document.querySelector('.toggle_box');
-const circle = document.querySelector('.circle');
-const checkbox = document.querySelector('#checkbox');
+// const toggleBox = document.querySelector('.toggle_box');
+// const circle = document.querySelector('.circle');
+// const checkbox = document.querySelector('#checkbox');
 
-toggleBox.addEventListener('click', () => {
-    if(checkbox.checked){
-        circle.classList.toggle('toggled');
-    }
-})
 
 displayBook(myLibrary);
 
