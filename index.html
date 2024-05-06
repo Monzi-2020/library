@@ -9,28 +9,35 @@
 </head>
 <body>
     <header>
-        <h1>My Library</h1>
-        <div class="num_books">Total:</div>
-        <button>Add books</button>
+        <div class="header_top">
+            <h1>My Library</h1>
+            <div class="header_top_left">
+                <div class="num_books">Total:</div>
+                <button id="add_books">Add books</button>
+            </div>
+        </div>
         <div class="popup">
-            <form action="" method="post">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title"/>
-                <label for="author">Author:</label>
-                <input type="text" id="author" name="author"/>
-                <label for="pages">Pages:</label>
-                <input type="number" id="pages" name="pages"/>
-                <h3>Did you read?</h3>
-                <div>
-                    <label for="read">Read</label>
-                    <input type="radio" id="read" name="read" value="read"/>
-                </div>
-                <div>
-                    <label for="unread">Not yet</label>
-                    <input type="radio" id="unread" name="read" value="not read yet"/>
-                </div>
-
-            </form>
+            <div class="popup_container">
+                <form action="" method="post">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required/>
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author" required/>
+                    <label for="pages">Pages:</label>
+                    <input type="number" id="pages" name="pages" min="10" max="1000" required/>
+                    <h3>Did you read?</h3>
+                    <div>
+                        <input type="radio" id="read" name="read" value="read" required/>
+                        <label for="read">Yes, I have read</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="unread" name="read" value="not read yet"/>
+                        <label for="unread">No, not yet</label>
+                    </div>
+                    <button class="form_btn" type="submit">Add to my library</button>
+                </form>
+                <button class="close_btn">x</button>
+            </div>
         </div>
     </header>
     <article>

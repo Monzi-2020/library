@@ -1,5 +1,8 @@
 "use strict"
 
+const myLibrary = [];
+
+// Book function
 function Book(title,author,pages,read){
     this.title = title,
     this.author = author,
@@ -10,28 +13,17 @@ function Book(title,author,pages,read){
     };
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
-
-function Player(name,marker){
-    this.name = name;
-    this.marker = marker;
-    this.sayName = function() {
-        console.log(this.name)
-    };
+function addBookToLibrary(title,author,pages,read){
+    myLibrary.push(new Book(title,author,pages,read));
 }
 
-const player1 = new Player('steve', 'X');
-const player2 = new Player('also steve', 'O');
+// Initial books
+const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
+const littlePrince = new Book('The Little Prince', 'Antoine De Saint', '96', 'read');
+const harryPotter1 = new Book('Harry Potter and the Chamber of Secrets','J.K. Rowling','340','read');
+const aliceWonderland = new Book(`Alice's Adventures in Wonderland`, 'Lewis Carroll','380','not read yet')
 
-// console.log(Object.getPrototypeOf(Player.prototype) === Object.prototype)
-console.log(player2.valueOf())
-console.log(theHobbit.valueOf())
-console.log(player1.hasOwnProperty('valueOf'))
-console.log(Object.getPrototypeOf(Object.prototype))
-
-Player.prototype.sayHello = function(){
-    console.log("Hello, I'm a player");
-};
-
-// player1.sayHello();
-// player2.sayHello();
+myLibrary.push(theHobbit);
+myLibrary.push(littlePrince);
+myLibrary.push(harryPotter1);
+myLibrary.push(aliceWonderland);

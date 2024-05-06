@@ -1,0 +1,148 @@
+@font-face {
+    font-family: "roboto";
+    src: url(./Roboto/Roboto-Black.ttf);
+}
+
+@font-face {
+    font-family: "roboto_thin";
+    src: url(./Roboto/Roboto-Thin.ttf);
+}
+
+@font-face {
+    font-family: "roboto-med";
+    src: url(./Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: "roboto-bold";
+    src: url(./Roboto/Roboto-Bold.ttf);
+}
+
+:root{
+    --rose-50: #fff1f2;
+    --rose-100: #ffe4e6;
+    --rose-200: #fecdd3;
+    --rose-300: #fda4af;
+    --rose-950: #500724;
+    --fuchsia-100: #fae8ff;
+    --fuchsia-200: #f5d0fe;
+    --fuchsia-950: #500724;
+    --bod-rad: 20px;
+    --box-shd: 3px 5px 10px 1px #8080807a;
+    --main-font: "roboto-thin", sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0px;
+}
+
+body{
+    display:flex;
+    flex-direction: column;
+    background-color: var(--rose-200);
+    font-family: var(--main-font);
+}
+
+/* Header */
+header{
+    background-color: var(--rose-100);
+    padding: 5vh;
+}
+
+.header_top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_top_left{
+    display: flex;
+}
+
+
+/* Popup */
+
+.popup{
+    position:absolute;
+    right:1%;
+    top: 10%;
+    width: 35%;
+    height: 50%;
+    background-color: var(--rose-300);
+    border-radius: var(--bod-rad);
+    box-shadow: var(--box-shd);
+}
+
+.popup_container{
+    background-color: inherit;
+    display:grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    padding:20px;
+    border-radius: var(--bod-rad);
+}
+
+h3{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+/* Form */
+
+form{
+    display: grid;
+    gap:10px;
+    align-items: center;
+    padding:20px;
+    height: 100%;
+    font-family: inherit;
+}
+
+label{
+    font-family: "roboto-bold", sans-serif;
+    font-size: 1.2rem;
+}
+
+div > label {
+    font-family: "roboto-med", sans-serif;
+    font-size: 1rem;
+}
+
+input{
+    padding:5px;
+    border:none;
+}
+
+input[type="text"]{
+    width: 70%;
+}
+
+input[type="number"]{
+    width: 20%;
+}
+
+
+button.form_btn{
+    border:none;
+    width: 30%;
+    height: 40px;
+    border-radius: var(--bod-rad);
+    margin: 30px 0px;
+    font-family: var(--main-font);
+    background-color: var(--rose-200);
+    font-size: 1rem;
+}
+
+button.close_btn{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border:none;
+    font-family: var(--main-font);
+    font-size: 1rem;
+    background-color: var(--rose-950);
+    color: var(--rose-50);
+    justify-self: right;
+}
