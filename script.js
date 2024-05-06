@@ -36,20 +36,30 @@ function displayBook(arr){
         pages.textContent = `${obj.pages} pages`;
         book.appendChild(pages);
 
+        const readTxt = document.createElement('div');
         const toggleBox = document.createElement('label');
         const checkbox = document.createElement('input');
         const circle = document.createElement('div');
         
+        readTxt.classList.add('read');
         toggleBox.classList.add('toggle_box');
         checkbox.setAttribute('type', 'checkbox');
         circle.classList.add('circle');
+        readTxt.textContent = "Read"
         toggleBox.appendChild(checkbox);
         toggleBox.append(circle);
+        book.appendChild(readTxt);
         book.appendChild(toggleBox);
 
         toggleBox.addEventListener('click', () => {
                if(checkbox.checked){
                 circle.classList.toggle('toggled');
+                readTxt.classList.toggle('toggled');
+                readTxt.textContent = "Have not read yet"
+               }
+               else{
+                readTxt.textContent = "Read"
+                // I figure out how to check the checkbox with the input from form
                }
         });        
     }

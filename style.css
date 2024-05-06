@@ -253,7 +253,9 @@ article{
     background-color: var(--rose-100);
     border-radius: 100px;
     cursor: pointer;
-    position: relative;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
 input[type="checkbox"]{
@@ -275,4 +277,12 @@ input[type="checkbox"]{
     left: 20px;
     background-color: var(--rose-200);
     transition: 0.3s;
+}
+
+.read{
+    color: black;
+}
+
+.read.toggled{
+    color: black;
 }
