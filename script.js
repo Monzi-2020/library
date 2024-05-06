@@ -86,7 +86,18 @@ const bookContainer= document.querySelector('.book_container');
 const bookHeader = document.querySelector('.book_header')
 const bookFooter = document.querySelector('book_footer');
 
+// -----Book elements-----
 
+// Toggle button for read
+const toggleBox = document.querySelector('.toggle_box');
+const circle = document.querySelector('.circle');
+const checkbox = document.querySelector('#checkbox');
+
+toggleBox.addEventListener('click', () => {
+    if(checkbox.checked){
+        circle.classList.toggle('toggled');
+    }
+})
 
 displayBook(myLibrary);
 
