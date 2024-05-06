@@ -20,7 +20,6 @@ function displayBook(arr){
         const book = document.createElement('div');
         book.classList.add('book');
         bookContainer.appendChild(book);
-        console.log(this)
 
         const title = document.createElement('div');
         title.classList.add('book_title');
@@ -29,11 +28,21 @@ function displayBook(arr){
 
         const author = document.createElement('div');
         author.classList.add('book_author');
-        author.textContent = `${obj.author}`;
+        author.textContent = `by ${obj.author}`;
         book.append(author);
+
+        const pages = document.createElement('div');
+        pages.classList.add('pages');
+        pages.textContent = `${obj.pages} pages`;
+        book.appendChild(pages);
+
+        
     }
 }
 
+function checkRead(){
+    this.read === 'read' ? 'Read' : 'Not read yet';
+}
 
 // Initial books
 const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
@@ -48,9 +57,12 @@ myLibrary.push(aliceWonderland);
 
 
 
+// -----Header and form-----
+
 // Number of books
 const numBooks = document.querySelector('.num_books');
 numBooks.textContent = myLibrary.length;
+
 
 // Show adding form
 
@@ -67,13 +79,14 @@ const closeBtn = document.querySelector('.close_btn');
 closeBtn.addEventListener('click', () => 
 showPopup.classList.toggle('active'));
 
-// Book container
+
+// -----Book container-----
 
 const bookContainer= document.querySelector('.book_container');
-
+const bookHeader = document.querySelector('.book_header')
+const bookFooter = document.querySelector('book_footer');
 
 
 
 displayBook(myLibrary);
-console.log(myLibrary)
 
