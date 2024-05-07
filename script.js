@@ -35,7 +35,7 @@ const numBooks = document.querySelector('.num_books');
 numBooks.textContent = myLibrary.length;
 
 
-// Dialog form
+// -----Dialog form-----
 
 const showPopup = document.querySelector("dialog");
 const addBookBtn = document.querySelector("#add_books");
@@ -47,8 +47,10 @@ addBookBtn.addEventListener("click", () => {
 
 const submitBtn = document.querySelector('.form_btn');
 
+// To prevent passing form input to the server
 submitBtn.addEventListener('click', preventBtn, false) 
 
+// Add Book
 submitBtn.addEventListener('click', () =>{
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
@@ -87,19 +89,28 @@ const bookContainer= document.querySelector('.book_container');
 
 function displayBook(arr){
     for (const obj of arr){
+        // Book figure
         const book = document.createElement('div');
         book.classList.add('book');
         bookContainer.appendChild(book);
 
+        // Added index to target certain object in array
+        const index = arr.indexOf(obj);
+
+        // Delete button for the book elements
         const delBookBtn = document.createElement('button');
         delBookBtn.classList.add('del_book_btn');
         delBookBtn.textContent = "X"
         delBookBtn.addEventListener('click', () => {
-            spliceObj(myLibrary,);
+            spliceObj(myLibrary,myLibrary[index]);
+            // Reset the library and build again according to updated condition
             resetLibrary(bookContainer);
             displayBook(myLibrary);
+            numBooks.textContent = myLibrary.length;
         })
         book.appendChild(delBookBtn);
+
+        // Adding infos on book elements
 
         const title = document.createElement('div');
         title.classList.add('book_title');
@@ -115,6 +126,8 @@ function displayBook(arr){
         pages.classList.add('pages');
         pages.textContent = `${obj.pages} pages`;
         book.appendChild(pages);
+
+        // Toggle button
 
         const readTxt = document.createElement('div');
         const toggleBox = document.createElement('label');
@@ -146,12 +159,14 @@ function displayBook(arr){
 }
 
 function spliceObj(arr,value){
+    for(let i=0; i < arr.length; i++){
     const index = arr.indexOf(value)
     if(index > -1) {
         myLibrary.splice(index,1)
     };
-    return arr;
-}
+    }}
+
+
 
 displayBook(myLibrary);
 
