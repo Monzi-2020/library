@@ -274,8 +274,11 @@ input[type="checkbox"]{
 
 .read{
     color: black;
+    position:absolute;
+    bottom:50px;
+    right: 15px;
 }
 
 .read.toggled{
-    color: black;
+    color: rgb(108, 106, 106);
 }

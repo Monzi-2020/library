@@ -94,6 +94,7 @@ const addBookBtn = document.querySelector("#add_books");
 
 addBookBtn.addEventListener("click", () => {
     showPopup.showModal();
+    document.querySelector('form').reset();
 })
 
 const submitBtn = document.querySelector('.form_btn');
@@ -101,17 +102,25 @@ const submitBtn = document.querySelector('.form_btn');
 submitBtn.addEventListener('click', preventBtn, false) 
 
 submitBtn.addEventListener('click', () =>{
-    const title = document.querySelector('#title').value;
-    const author = document.querySelector('#author').value;
-    const pages = document.querySelector('#pages').value;
-    const read = document.querySelector('#read').value;
-    addBookToLibrary(title,author,pages,read);
+    const title = document.querySelector('#title');
+    const author = document.querySelector('#author');
+    const pages = document.querySelector('#pages');
+    const read = document.querySelector('#read');
+    addBookToLibrary(title.value,author.value,pages.value,read.value);
+    numBooks.textContent = myLibrary.length;
+    resetLibrary(bookContainer);
     displayBook(myLibrary);
+    showPopup.close();
 })
 
 function preventBtn(event){
     event.preventDefault();
 }
+
+function resetLibrary(container){
+    container.replaceChildren();
+}
+
 
 // Close dialog
 const closeBtn = document.querySelector('.close_btn');
