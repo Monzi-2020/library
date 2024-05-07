@@ -7,7 +7,7 @@ function Book(title,author,pages,read){
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.read = read;
+    this.read = Boolean(read);
     return this;
 }
 
@@ -67,10 +67,6 @@ function displayBook(arr){
 
 
 
-function checkRead(){
-    this.read === 'read' ? 'Read' : 'Not read yet';
-}
-
 // Initial books
 const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
 const littlePrince = new Book('The Little Prince', 'Antoine De Saint', '96', 'read');
@@ -91,7 +87,7 @@ const numBooks = document.querySelector('.num_books');
 numBooks.textContent = myLibrary.length;
 
 
-// Show adding form
+// Dialog form
 
 const showPopup = document.querySelector("dialog");
 const addBookBtn = document.querySelector("#add_books");
@@ -100,7 +96,24 @@ addBookBtn.addEventListener("click", () => {
     showPopup.showModal();
 })
 
-// Close adding form
+const submitBtn = document.querySelector('.form_btn');
+
+submitBtn.addEventListener('click', preventBtn, false) 
+
+submitBtn.addEventListener('click', () =>{
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const pages = document.querySelector('#pages').value;
+    const read = document.querySelector('#read').value;
+    addBookToLibrary(title,author,pages,read);
+    displayBook(myLibrary);
+})
+
+function preventBtn(event){
+    event.preventDefault();
+}
+
+// Close dialog
 const closeBtn = document.querySelector('.close_btn');
 
 closeBtn.addEventListener('click', () => {
@@ -111,8 +124,7 @@ closeBtn.addEventListener('click', () => {
 // -----Book container-----
 
 const bookContainer= document.querySelector('.book_container');
-const bookHeader = document.querySelector('.book_header')
-const bookFooter = document.querySelector('book_footer');
+
 
 // -----Book elements-----
 
