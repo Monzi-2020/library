@@ -2,13 +2,6 @@
 
 const myLibrary = [];
 
-function check(){
-    
-}
-
-function unchecked(){
-    
-}
 
 // Book function
 function Book(title,author,pages,read){
@@ -57,7 +50,12 @@ const submitBtn = document.querySelector('.form_btn');
 
 // To prevent passing form input to the server
 
+function preventBtn(event){
+    event.preventDefault();
+}
+
 submitBtn.addEventListener('click', preventBtn, false) 
+
 
 // Add Book
 
@@ -66,7 +64,8 @@ submitBtn.addEventListener('click', () =>{
     const author = document.querySelector('#author').value;
     const pages = document.querySelector('#pages').value;
 
-    
+    // Function to check the checked attribute in order to return the value
+
     function checkRead() {
         if(document.querySelector('#read').checked)
         return "true";
@@ -74,6 +73,7 @@ submitBtn.addEventListener('click', () =>{
         return "false";
     }
     const read = checkRead();
+    
     addBookToLibrary(title,author,pages,read);
     numBooks.textContent = myLibrary.length;
     resetLibrary(bookContainer);
@@ -81,9 +81,6 @@ submitBtn.addEventListener('click', () =>{
     showPopup.close();
 })
 
-function preventBtn(event){
-    event.preventDefault();
-}
 
 function resetLibrary(container){
     container.replaceChildren();
@@ -101,7 +98,6 @@ closeBtn.addEventListener('click', () => {
 // -----Book container-----
 
 const bookContainer= document.querySelector('.book_container');
-displayBook(myLibrary);
 
 
 // -----Book elements-----
@@ -204,6 +200,5 @@ function spliceObj(arr,value){
     };
     }}
 
-
-
-
+//   Initial condition
+  displayBook(myLibrary);
