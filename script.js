@@ -93,18 +93,19 @@ numBooks.textContent = myLibrary.length;
 
 // Show adding form
 
-const showPopup = document.querySelector(".popup");
+const showPopup = document.querySelector("dialog");
 const addBookBtn = document.querySelector("#add_books");
 
-addBookBtn.addEventListener('click', () =>
-showPopup.classList.toggle('active')
-);
+addBookBtn.addEventListener("click", () => {
+    showPopup.showModal();
+})
 
 // Close adding form
 const closeBtn = document.querySelector('.close_btn');
 
-closeBtn.addEventListener('click', () => 
-showPopup.classList.toggle('active'));
+closeBtn.addEventListener('click', () => {
+    showPopup.close();
+})
 
 
 // -----Book container-----
@@ -114,11 +115,6 @@ const bookHeader = document.querySelector('.book_header')
 const bookFooter = document.querySelector('book_footer');
 
 // -----Book elements-----
-
-// Toggle button for read
-// const toggleBox = document.querySelector('.toggle_box');
-// const circle = document.querySelector('.circle');
-// const checkbox = document.querySelector('#checkbox');
 
 
 displayBook(myLibrary);

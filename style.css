@@ -45,10 +45,10 @@ body{
 
 /* Header */
 header{
-    
     padding: 5vh;
     background-color: var(--rose-100);
     box-shadow: var(--box-shd);
+    position:relative;
 }
 
 .header_top{
@@ -96,26 +96,19 @@ button#add_books {
 
 /* Popup */
 
-.popup{
-    position:absolute;
-    right:1%;
+dialog {
+    position: absolute;
+    width: 33%;
+    height: 60%;
+    left: 60%;
     top: 13%;
-    width: 35%;
-    height: 50%;
     background-color: var(--rose-300);
+    border: none;
     border-radius: var(--bod-rad);
     box-shadow: var(--box-shd);
-    opacity: 0;
-    pointer-events: none;
     transition: .4s ease;
-    z-index: 99 !important;
 }
 
-.popup.active{
-    opacity:0.97;
-    pointer-events: auto;
-    transition: .4s ease;
-}
 
 .popup_container{
     background-color: inherit;
@@ -154,7 +147,7 @@ div > label {
 }
 
 input{
-    padding:5px;
+    padding:7px;
     border:none;
 }
 
