@@ -7,7 +7,7 @@ function Book(title,author,pages,read){
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.read = Boolean(read);
+    this.read = read;
     return this;
 }
 
@@ -17,10 +17,10 @@ function addBookToLibrary(title,author,pages,read){
 
 
 // Initial books
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
-const littlePrince = new Book('The Little Prince', 'Antoine De Saint', '96', 'read');
-const harryPotter1 = new Book('Harry Potter and the Chamber of Secrets','J.K. Rowling','340','read');
-const aliceWonderland = new Book(`Alice's Adventures in Wonderland`, 'Lewis Carroll','380','not read yet')
+const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'false');
+const littlePrince = new Book('The Little Prince', 'Antoine De Saint', '96', 'true');
+const harryPotter1 = new Book('Harry Potter and the Chamber of Secrets','J.K. Rowling','340','true');
+const aliceWonderland = new Book(`Alice's Adventures in Wonderland`, 'Lewis Carroll','380','false')
 
 myLibrary.push(theHobbit);
 myLibrary.push(littlePrince);
@@ -48,9 +48,11 @@ addBookBtn.addEventListener("click", () => {
 const submitBtn = document.querySelector('.form_btn');
 
 // To prevent passing form input to the server
+
 submitBtn.addEventListener('click', preventBtn, false) 
 
 // Add Book
+
 submitBtn.addEventListener('click', () =>{
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
@@ -83,6 +85,7 @@ closeBtn.addEventListener('click', () => {
 // -----Book container-----
 
 const bookContainer= document.querySelector('.book_container');
+displayBook(myLibrary);
 
 
 // -----Book elements-----
@@ -136,27 +139,46 @@ function displayBook(arr){
         
         readTxt.classList.add('read');
         toggleBox.classList.add('toggle_box');
-        checkbox.setAttribute('type', 'checkbox');
         circle.classList.add('circle');
-        readTxt.textContent = "Read"
-        toggleBox.appendChild(checkbox);
+        readTxt.textContent = ""
         toggleBox.append(circle);
         book.appendChild(readTxt);
         book.appendChild(toggleBox);
 
+        // Toggle function
+
+        let read = obj.read;
+        
+        if(read === "false" ){
+            circle.classList.toggle('toggled');
+            readTxt.classList.toggle('toggled');
+            readTxt.textContent = "Have not read yet";
+        }
+        else if(read === "true"){
+            readTxt.textContent = "Read";
+        }
+
+        // Toggle eventlistener
+
         toggleBox.addEventListener('click', () => {
-               if(checkbox.checked){
+            if(read === "false"){  
+            circle.classList.toggle('toggled');
+            readTxt.classList.toggle('toggled');
+            readTxt.textContent = "Read";
+            read = "true";
+            
+            }
+            else if(read === "true"){
                 circle.classList.toggle('toggled');
                 readTxt.classList.toggle('toggled');
-                readTxt.textContent = "Have not read yet"
-               }
-               else{
-                readTxt.textContent = "Read"
-                // I figure out how to check the checkbox with the input from form
-               }
-        });        
+                readTxt.textContent = "Have not read yet";
+                read = "false";
+            }    
+
+        });
     }
-}
+};        
+    
 
 function spliceObj(arr,value){
     for(let i=0; i < arr.length; i++){
@@ -168,5 +190,4 @@ function spliceObj(arr,value){
 
 
 
-displayBook(myLibrary);
 
