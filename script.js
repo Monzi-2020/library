@@ -2,6 +2,14 @@
 
 const myLibrary = [];
 
+function check(){
+    
+}
+
+function unchecked(){
+    
+}
+
 // Book function
 function Book(title,author,pages,read){
     this.title = title,
@@ -57,7 +65,15 @@ submitBtn.addEventListener('click', () =>{
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const pages = document.querySelector('#pages').value;
-    const read = document.querySelector('#read').value;
+
+    
+    function checkRead() {
+        if(document.querySelector('#read').checked)
+        return "true";
+    else if(document.querySelector('#unread').checked)
+        return "false";
+    }
+    const read = checkRead();
     addBookToLibrary(title,author,pages,read);
     numBooks.textContent = myLibrary.length;
     resetLibrary(bookContainer);
@@ -149,26 +165,26 @@ function displayBook(arr){
 
         let read = obj.read;
         
-        if(read === "false" ){
+        if(read !== "true"){
             circle.classList.toggle('toggled');
             readTxt.classList.toggle('toggled');
             readTxt.textContent = "Have not read yet";
         }
-        else if(read === "true"){
+        else{
             readTxt.textContent = "Read";
         }
 
         // Toggle eventlistener
 
         toggleBox.addEventListener('click', () => {
-            if(read === "false"){  
+            if(read !== "true"){  
             circle.classList.toggle('toggled');
             readTxt.classList.toggle('toggled');
             readTxt.textContent = "Read";
             read = "true";
             
             }
-            else if(read === "true"){
+            else{
                 circle.classList.toggle('toggled');
                 readTxt.classList.toggle('toggled');
                 readTxt.textContent = "Have not read yet";

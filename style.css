@@ -106,7 +106,6 @@ dialog {
     border: none;
     border-radius: var(--bod-rad);
     box-shadow: var(--box-shd);
-    transition: .4s ease;
 }
 
 
@@ -159,6 +158,9 @@ input[type="number"]{
     width: 20%;
 }
 
+input[type="checkbox"]{
+    appearance: auto;
+}
 
 button.form_btn{
     border:none;
@@ -226,6 +228,7 @@ article{
     position: absolute;
     top: 10px;
     right: 10px;
+    cursor: pointer;
 }
 
 .book_title{
@@ -263,10 +266,6 @@ article{
     right: 10px;
 }
 
-input[type="checkbox"]{
-    display: none;
-}
-
 .circle{
     position: absolute;
     width: 20px;
@@ -289,9 +288,11 @@ input[type="checkbox"]{
     position:absolute;
     bottom:50px;
     right: 15px;
+    transition: 0.3s;
 }
 
 .read.toggled{
     color: rgb(108, 106, 106);
+    transition: 0.3s;
 }
 

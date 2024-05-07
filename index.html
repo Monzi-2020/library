@@ -42,14 +42,14 @@
                     <input type="text" id="author" name="author" autocomplete="off" required/>
                     <label for="pages">Pages:</label>
                     <input type="number" id="pages" name="pages" min="10" max="1000" autocomplete="off" required/>
-                    <h3>Did you read?</h3>
+                    <h3>Have you read this book?</h3>
                     <div>
-                        <input type="radio" id="read" name="read" value="true" required/>
+                        <input type="radio" id="read" name="read" checked/>
                         <label for="read">Yes, I have read</label>
                     </div>
                     <div>
-                        <input type="radio" id="unread" name="read" value="false"/>
-                        <label for="unread">No, not yet</label>
+                        <input type="radio" id="unread" name="read"/>
+                        <label for="unread">No</label>
                     </div>
                     <button class="form_btn" type="submit">Add to my library</button>
                 </form>
