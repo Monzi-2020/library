@@ -15,11 +15,91 @@ function addBookToLibrary(title,author,pages,read){
     myLibrary.push(new Book(title,author,pages,read));
 }
 
+
+// Initial books
+const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
+const littlePrince = new Book('The Little Prince', 'Antoine De Saint', '96', 'read');
+const harryPotter1 = new Book('Harry Potter and the Chamber of Secrets','J.K. Rowling','340','read');
+const aliceWonderland = new Book(`Alice's Adventures in Wonderland`, 'Lewis Carroll','380','not read yet')
+
+myLibrary.push(theHobbit);
+myLibrary.push(littlePrince);
+myLibrary.push(harryPotter1);
+myLibrary.push(aliceWonderland);
+
+
+// -----Header and form-----
+
+// Number of books
+const numBooks = document.querySelector('.num_books');
+numBooks.textContent = myLibrary.length;
+
+
+// Dialog form
+
+const showPopup = document.querySelector("dialog");
+const addBookBtn = document.querySelector("#add_books");
+
+addBookBtn.addEventListener("click", () => {
+    showPopup.showModal();
+    document.querySelector('form').reset();
+})
+
+const submitBtn = document.querySelector('.form_btn');
+
+submitBtn.addEventListener('click', preventBtn, false) 
+
+submitBtn.addEventListener('click', () =>{
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const pages = document.querySelector('#pages').value;
+    const read = document.querySelector('#read').value;
+    addBookToLibrary(title,author,pages,read);
+    numBooks.textContent = myLibrary.length;
+    resetLibrary(bookContainer);
+    displayBook(myLibrary);
+    showPopup.close();
+})
+
+function preventBtn(event){
+    event.preventDefault();
+}
+
+function resetLibrary(container){
+    container.replaceChildren();
+}
+
+
+// Close dialog
+const closeBtn = document.querySelector('.close_btn');
+
+closeBtn.addEventListener('click', () => {
+    showPopup.close();
+})
+
+
+// -----Book container-----
+
+const bookContainer= document.querySelector('.book_container');
+
+
+// -----Book elements-----
+
 function displayBook(arr){
     for (const obj of arr){
         const book = document.createElement('div');
         book.classList.add('book');
         bookContainer.appendChild(book);
+
+        const delBookBtn = document.createElement('button');
+        delBookBtn.classList.add('del_book_btn');
+        delBookBtn.textContent = "X"
+        delBookBtn.addEventListener('click', () => {
+            spliceObj(myLibrary,);
+            resetLibrary(bookContainer);
+            displayBook(myLibrary);
+        })
+        book.appendChild(delBookBtn);
 
         const title = document.createElement('div');
         title.classList.add('book_title');
@@ -65,78 +145,13 @@ function displayBook(arr){
     }
 }
 
-
-
-// Initial books
-const theHobbit = new Book('The Hobbit', 'J.R.R Tolkien', '295', 'not read yet');
-const littlePrince = new Book('The Little Prince', 'Antoine De Saint', '96', 'read');
-const harryPotter1 = new Book('Harry Potter and the Chamber of Secrets','J.K. Rowling','340','read');
-const aliceWonderland = new Book(`Alice's Adventures in Wonderland`, 'Lewis Carroll','380','not read yet')
-
-myLibrary.push(theHobbit);
-myLibrary.push(littlePrince);
-myLibrary.push(harryPotter1);
-myLibrary.push(aliceWonderland);
-
-
-
-// -----Header and form-----
-
-// Number of books
-const numBooks = document.querySelector('.num_books');
-numBooks.textContent = myLibrary.length;
-
-
-// Dialog form
-
-const showPopup = document.querySelector("dialog");
-const addBookBtn = document.querySelector("#add_books");
-
-addBookBtn.addEventListener("click", () => {
-    showPopup.showModal();
-    document.querySelector('form').reset();
-})
-
-const submitBtn = document.querySelector('.form_btn');
-
-submitBtn.addEventListener('click', preventBtn, false) 
-
-submitBtn.addEventListener('click', () =>{
-    const title = document.querySelector('#title');
-    const author = document.querySelector('#author');
-    const pages = document.querySelector('#pages');
-    const read = document.querySelector('#read');
-    addBookToLibrary(title.value,author.value,pages.value,read.value);
-    numBooks.textContent = myLibrary.length;
-    resetLibrary(bookContainer);
-    displayBook(myLibrary);
-    showPopup.close();
-})
-
-function preventBtn(event){
-    event.preventDefault();
+function spliceObj(arr,value){
+    const index = arr.indexOf(value)
+    if(index > -1) {
+        myLibrary.splice(index,1)
+    };
+    return arr;
 }
-
-function resetLibrary(container){
-    container.replaceChildren();
-}
-
-
-// Close dialog
-const closeBtn = document.querySelector('.close_btn');
-
-closeBtn.addEventListener('click', () => {
-    showPopup.close();
-})
-
-
-// -----Book container-----
-
-const bookContainer= document.querySelector('.book_container');
-
-
-// -----Book elements-----
-
 
 displayBook(myLibrary);
 

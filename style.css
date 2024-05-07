@@ -57,13 +57,13 @@ header{
     align-items: center;
 }
 
-.header_top > h1 {
+.logo > h1 {
     font-family: var(--main-font);
     font-size: 2.5rem;
 }
 
 svg{
-    width: 40px;
+    width: 50px;
     
 }
 
@@ -216,6 +216,18 @@ article{
     font-family: var(--main-font);
 }
 
+.del_book_btn {
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #ff4848a1;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
 .book_title{
     font-family: inherit;
     font-size: 1.8rem;
@@ -282,3 +294,4 @@ input[type="checkbox"]{
 .read.toggled{
     color: rgb(108, 106, 106);
 }
+
